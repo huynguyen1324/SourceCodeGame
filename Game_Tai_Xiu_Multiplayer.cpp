@@ -41,7 +41,6 @@ void NguoiChoi()
         biLoai[i] = false;
         bienMat[i] = false;
     }
-    bienMat.resize(soNgChoi);
     dangChoi = soNgChoi;
     soDu.resize(soNgChoi);
     soNguoiChoi = soNgChoi;
@@ -63,6 +62,7 @@ void ResetVaNapTien()
         bienMat[i] = false;
         soDu[i] = 0;
     }
+    dangChoi = soNguoiChoi;
     cout << "Nhập số tiền mỗi người chơi nhận được: ";
     ll soTien;
     cin >> soTien;
@@ -70,6 +70,23 @@ void ResetVaNapTien()
     {
         soDu[i] += soTien;
     }
+}
+
+void VuaCoBac() {
+    cout << endl;
+    for (int i = 0; i < soNguoiChoi; i++)
+    {
+        if (biLoai[i] == false)
+        {
+            cout << "Chúc mừng " << nguoiChoi[i] << " trở thành Vua Cờ Bạc!!!!" << endl;
+            break;
+        }
+    }
+    cout << endl
+         << "- Nhấn phím bất kỳ để quay lại MENU -" << endl;
+    cin.get();
+    cin.get();
+    return;
 }
 
 void ChoiTaiXiu()
@@ -104,7 +121,7 @@ void ChoiTaiXiu()
     {
         if (mode[i] == "chay")
         {
-            cout << nguoiChoi[i] << " chạy làng, bị sỉ vả như con" << endl;
+            cout << nguoiChoi[i] << " chạy làng, bị chửi như con" << endl;
             biLoai[i] = true;
             --dangChoi;
         }
@@ -117,22 +134,8 @@ void ChoiTaiXiu()
             cout << nguoiChoi[i] << " chọn Xỉu" << endl;
         }
     }
-
-    if (dangChoi == 1)
-    {
-        cout << endl;
-        for (int i = 0; i < soNguoiChoi; i++)
-        {
-            if (biLoai[i] == false)
-            {
-                cout << "Chúc mừng " << nguoiChoi[i] << " trở thành Vua Cờ Bạc!!!!" << endl;
-                break;
-            }
-        }
-        cout << endl
-             << "- Nhấn phím bất kỳ để quay lại MENU -" << endl;
-        cin.get();
-        cin.get();
+    if(dangChoi == 1){
+        VuaCoBac();
         return;
     }
 
@@ -224,21 +227,8 @@ void ChoiTaiXiu()
         }
     }
 
-    if (dangChoi == 1)
-    {
-        cout << endl;
-        for (int i = 0; i < soNguoiChoi; i++)
-        {
-            if (biLoai[i] == false)
-            {
-                cout << "Chúc mừng " << nguoiChoi[i] << " trở thành Vua Cờ Bạc!!!!" << endl;
-                break;
-            }
-        }
-        cout << endl
-             << "- Nhấn phím bất kỳ để quay lại MENU -" << endl;
-        cin.get();
-        cin.get();
+    if(dangChoi == 1){
+        VuaCoBac();
         return;
     }
 
@@ -281,7 +271,7 @@ void ChoiChanLe()
     {
         if (mode[i] == "chay")
         {
-            cout << nguoiChoi[i] << " chạy làng, bị sỉ vả như con" << endl;
+            cout << nguoiChoi[i] << " chạy làng, bị chửi như con" << endl;
             biLoai[i] = true;
             --dangChoi;
         }
@@ -295,21 +285,8 @@ void ChoiChanLe()
         }
     }
 
-    if (dangChoi == 1)
-    {
-        cout << endl;
-        for (int i = 0; i < soNguoiChoi; i++)
-        {
-            if (biLoai[i] == false)
-            {
-                cout << "Chúc mừng " << nguoiChoi[i] << " trở thành Vua Cờ Bạc!!!!" << endl;
-                break;
-            }
-        }
-        cout << endl
-             << "- Nhấn phím bất kỳ để quay lại MENU -" << endl;
-        cin.get();
-        cin.get();
+    if(dangChoi == 1){
+        VuaCoBac();
         return;
     }
 
@@ -393,21 +370,8 @@ void ChoiChanLe()
         }
     }
 
-    if (dangChoi == 1)
-    {
-        cout << endl;
-        for (int i = 0; i < soNguoiChoi; i++)
-        {
-            if (biLoai[i] == false)
-            {
-                cout << "Chúc mừng " << nguoiChoi[i] << " trở thành Vua Cờ Bạc!!!!" << endl;
-                break;
-            }
-        }
-        cout << endl
-             << "- Nhấn phím bất kỳ để quay lại MENU -" << endl;
-        cin.get();
-        cin.get();
+    if(dangChoi == 1){
+        VuaCoBac();
         return;
     }
 
@@ -469,3 +433,4 @@ int main()
     Game();
     return 0;
 }
+    
