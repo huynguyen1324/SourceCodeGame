@@ -1,3 +1,5 @@
+// Không kiến thức nâng cao, chỉ có dùng hàm random() cơ bản
+
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
@@ -12,14 +14,14 @@ int random(int min, int max){
 
 void Start(){
     system("cls");
-    cout << "CHÀO MỪNG BẠN ĐẾN VỚI GAME TÀI XỈU CHẴN LẺ" << endl << endl;
-    cout << "PHIÊN BẢN BASIC DÀNH CHO NEWBIE" << endl << endl;
-    cout << "- Nhấn phím bất kỳ để chơi -" << endl;
+    cout << "Chao mung ban den voi game tai xiu chan le" << endl << endl;
+    cout << "Phien ban basic danh cho newbie" << endl << endl;
+    cout << "- Nhan phim bat ky de choi -" << endl;
     cin.get();
 }
 
 void NapTien() {
-    cout << endl << "Nhập số tiền muốn nạp: ";
+    cout << endl << "Nhap so tien muon nap: ";
     long long TienNap;
     cin >> TienNap;
     SoDu += TienNap;
@@ -28,22 +30,22 @@ void NapTien() {
 
 void ChoiTaiXiu(){
     cout << endl;
-    cout << "Nhấn t chọn Tài, x chọn Xỉu, s để Stop: ";
+    cout << "Nhan t chon Tai, x chon Xiu, s de Stop: ";
     string mode;
     cin >> mode;
     while (mode != "t" && mode != "x" && mode != "s") {
-        cout << "Mời nhập lại" << endl;
-        cout << "Nhấn t chọn Tài, x chọn Xỉu, s để Stop: ";
+        cout << "Moi nhap lai" << endl;
+        cout << "Nhan t chon Tai, x chon Xiu, s de Stop: ";
         cin >> mode;
     }
     if(mode == "s") {
         return;
     } else if(mode == "t"){
-        cout << "Chọn Tài" << endl;
+        cout << "Chon Tai" << endl;
     } else if (mode == "x"){
-        cout << "Chọn Xỉu" << endl;
+        cout << "Chon Xiu" << endl;
     }
-    cout << "Nhập số tiền muốn cược: ";
+    cout << "Nhap so tien muon cuoc: ";
     ll TienCuoc;
     cin >> TienCuoc;
     srand((int)time(0));
@@ -51,35 +53,35 @@ void ChoiTaiXiu(){
     for(int i = 0; i < 3; i++){
         xucxac[i] = random(1, 6);
     }
-    cout << "Đổ xúc xắc: " << xucxac[0] << " " << xucxac[1] << " " << xucxac[2] << endl;
+    cout << "Do xuc xac: " << xucxac[0] << " " << xucxac[1] << " " << xucxac[2] << endl;
     int tong = xucxac[0] + xucxac[1] + xucxac[2];
-    cout << "Tổng: " << tong << endl;
+    cout << "Tong: " << tong << endl;
     if(tong == 3 || tong == 18){
-        cout << "Không mất gì";
+        cout << "Khong mat gi";
     } else if(11 <= tong && tong <= 17) {
-        cout << "Về Tài, ";
+        cout << "Ve Tai";
         if(mode == "t") {
-            cout << "ĂN ";
+            cout << "AN ";
             SoDu += TienCuoc;
         } else {
-            cout << "MẤT ";
+            cout << "MAT ";
             SoDu -= TienCuoc;
         }
     } else {
-        cout << "Về Xỉu, ";
+        cout << "Về XIU, ";
         if(mode == "x") {
-            cout << "ĂN ";
+            cout << "AN ";
             SoDu += TienCuoc;
         } else {
-            cout << "MẤT ";
+            cout << "MAT ";
             SoDu -= TienCuoc;
         }
     }
     cout << endl;
     if(SoDu > 0) {
-        cout << "Số dư hiện tại: " << SoDu << endl;
+        cout << "So du hien tai: " << SoDu << endl;
     } else {
-        cout << endl << "HẾT TIỀN nhấn phím bất kỳ để đến mục nạp tiền" << endl;
+        cout << endl << "HET TIEN nhan phim bat ky de den muc nap tien" << endl;
         cin.get();
         cin.get();
         return;
@@ -89,50 +91,50 @@ void ChoiTaiXiu(){
 
 void ChoiChanLe() {
     cout << endl;
-    cout << "Nhấn c chọn Chẵn, l chọn Lẻ, s để Stop: ";
+    cout << "Nhan c chon Chan, l chon Le, s de Stop: ";
     string mode;
     cin >> mode;
     while (mode != "c" && mode != "l" && mode != "s") {
-        cout << "Mời nhập lại" << endl;
-        cout << "Nhấn c chọn Chẵn, l chọn Lẻ, s để Stop: ";
+        cout << "Moi nhap lai" << endl;
+        cout << "Nhan c chon Chan, l chon Le, s de Stop: ";
         cin >> mode;
     }
     if(mode == "s") {
         return;
     } else if(mode == "c"){
-        cout << "Chọn Chẵn" << endl;
+        cout << "Chon Chan" << endl;
     } else if (mode == "l"){
-        cout << "Chọn Lẻ" << endl;
+        cout << "Chon Le" << endl;
     }
-    cout << "Nhập số tiền muốn cược: ";
+    cout << "Nhap so tien muon cuoc: ";
     ll TienCuoc;
     cin >> TienCuoc;
     srand((int)time(0));
     int r = random(0, 1);
     if(r % 2 == 0) {
-        cout << "Ra Chẵn, ";
+        cout << "Ra Chan, ";
         if(mode == "c") {
-            cout << "ĂN ";
+            cout << "AN ";
             SoDu += TienCuoc;
         } else {
-            cout << "MẤT ";
+            cout << "MAT ";
             SoDu -= TienCuoc;
         }
     } else {
-        cout << "Ra Lẻ, ";
+        cout << "Ra Le, ";
         if(mode == "l") {
-            cout << "ĂN ";
+            cout << "AN ";
             SoDu += TienCuoc;
         } else {
-            cout << "MẤT ";
+            cout << "MAT ";
             SoDu -= TienCuoc;
         }
     }
     cout << endl;
     if(SoDu > 0) {
-        cout << "Số dư hiện tại: " << SoDu << endl;
+        cout << "So du hien tai: " << SoDu << endl;
     } else {
-        cout << endl << "HẾT TIỀN nhấn phím bất kỳ để đến mục nạp tiền" << endl;
+        cout << endl << "HET TIEN nhan phim bat ky de den muc nap tien" << endl;
         cin.get();
         cin.get();
         return;
@@ -142,39 +144,39 @@ void ChoiChanLe() {
 
 void ThoatGame() {
     system("cls");
-    cout << "Hẹn gặp lại!!!" << endl;
+    cout << "Hen gap lai!!!" << endl;
 }
 
 void Game() {
     while(SoDu <= 0) {
         system("cls");
-        cout << "Số dư hiện tại: " << SoDu << endl;
-        cout << "Số dư không đủ cần nạp thêm tiền" << endl;
+        cout << "So du hien tai: " << SoDu << endl;
+        cout << "So du khong du can nap them tien" << endl;
         NapTien();
     }
     while(SoDu > 0) {
         system("cls");
-        cout << "Số dư hiện tại: " << SoDu << endl;
-        cout << "Các chế độ:" << endl;
-        cout << "1. Chơi Tài Xỉu" << endl;
-        cout << "2. Chơi Chẵn Lẻ" << endl;
-        cout << "3. Nạp Tiền" << endl;
-        cout << "4. Thoát Game" << endl;
-        cout << "Chọn chế độ: ";
+        cout << "So du hien tai: " << SoDu << endl;
+        cout << "Cac che do" << endl;
+        cout << "1. Choi Tai Xiu" << endl;
+        cout << "2. Choi Chan Le" << endl;
+        cout << "3. Nap Tien" << endl;
+        cout << "4. Thoat Game" << endl;
+        cout << "Chon che do: ";
         int mode;
         cin >> mode;
         while (mode != 1 && mode != 2 && mode != 3 && mode != 4) {
-            cout << "Mời nhập lại" << endl;
-            cout << "Chọn chế độ: ";
+            cout << "Moi nhap lai" << endl;
+            cout << "Chon che do: ";
             cin >> mode;
         }
         if(mode == 1) {
             system("cls");
-            cout << "CHƠI TÀI XỈU, NGƯỜI KHÔNG CHƠI LÀ NGƯỜI THẮNG" << endl;
+            cout << "CHOI TAI XIU, NGUOI KHONG CHOI LA NGUOI THANG" << endl;
             ChoiTaiXiu();
         } else if(mode == 2){
             system("cls");
-            cout << "CHƠI CHẴN LẺ, NGƯỜI CHƠI LÀ NGƯỜI THUA" << endl;
+            cout << "CHOI CHAN LE, NGUOI KHONG CHOI LA NGUOI THUA" << endl;
             ChoiChanLe();
         } else if(mode == 3) {
             NapTien();

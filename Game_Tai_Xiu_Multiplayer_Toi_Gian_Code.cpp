@@ -1,3 +1,5 @@
+// Không kiến thức nâng cao, chỉ có dùng hàm random() cơ bản
+
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -15,15 +17,15 @@ int random(int min, int max){
 
 void BatDau(){
     system("cls");
-    cout << "NHÀ CÁI NEWBIE HÂN HẠNH GIỚI THIỆU" << endl << endl;
-    cout << "GAME TÀI XỈU PHIÊN BẢN MULTIPLAYER" << endl << endl;
-    cout << "- Nhấn phím bất kỳ để chơi -" << endl;
+    cout << "NHA CAI NEWBIE HAN HANH GIOI THIEU" << endl << endl;
+    cout << "GAME TAI XIU MULTIPLAYER" << endl << endl;
+    cout << "- Nhan phim bat ky de choi -" << endl;
     cin.get();
 }
 
 void NguoiChoi(){
     system("cls");
-    cout << "Nhập số người chơi: ";
+    cout << "Nhap so nguoi choi: ";
     int soNgChoi;
     cin >> soNgChoi;
     cin.ignore();
@@ -42,7 +44,7 @@ void NguoiChoi(){
 
     vector<string> ngChoi(soNgChoi);
     for (int i = 0; i < soNgChoi; i++){
-        cout << "Nhập tên người chơi số " << i + 1 << " (Nhập không dấu): ";
+        cout << "Nhap ten nguoi choi so " << i + 1 << " : ";
         getline(cin, ngChoi[i]);
         nguoiChoi[i] = ngChoi[i];
     }
@@ -55,7 +57,7 @@ void ResetVaNapTien(){
         soDu[i] = 0;
     }
     dangChoi = soNguoiChoi;
-    cout << "Nhập số tiền mỗi người chơi nhận được: ";
+    cout << "Nhap so tien moi nguoi choi nhan duoc: ";
     ll soTien;
     cin >> soTien;
     for (int i = 0; i < soNguoiChoi; i++){
@@ -68,65 +70,55 @@ void NhapMode(vector<string> &mode, string mode1, string mode2, string mode1_pri
     for (int i = 0; i < soNguoiChoi; i++){
         if (biLoai[i] == false)
         {
-            cout << "Số dư hiện tại của " << nguoiChoi[i] << ": " << soDu[i] << endl;
+            cout << "So du hien tai cua " << nguoiChoi[i] << ": " << soDu[i] << endl;
         }
     }
     cout << endl;
-    cout << "Nhập \"" << mode1 << "\", \"" << mode2 << "\", hoặc \"chay\" để chạy làng" << endl;
-    for (int i = 0; i < soNguoiChoi; i++)
-    {
-        if (biLoai[i] == false)
-        {
-            cout << nguoiChoi[i] << " chọn: ";
+    cout << "Nhap \"" << mode1 << "\", \"" << mode2 << "\", hoac \"chay\" để chay lang" << endl;
+    for (int i = 0; i < soNguoiChoi; i++){
+        if (biLoai[i] == false){
+            cout << nguoiChoi[i] << " chon: ";
             cin >> mode[i];
-            while (mode[i] != mode1 && mode[i] != mode2 && mode[i] != "chay")
-            {
-                cout << "Nhập lại, " << nguoiChoi[i] << " chọn: ";
+            while (mode[i] != mode1 && mode[i] != mode2 && mode[i] != "chay"){
+                cout << "Nhap lai, " << nguoiChoi[i] << " chon: ";
                 cin >> mode[i];
             }
         }
     }
 
     cout << endl;
-    for (int i = 0; i < soNguoiChoi; i++)
-    {
-        if (mode[i] == "chay")
-        {
-            cout << nguoiChoi[i] << " chạy làng, bị chửi như con" << endl;
+    for (int i = 0; i < soNguoiChoi; i++){
+        if (mode[i] == "chay"){
+            cout << nguoiChoi[i] << " chay lang, bi chui nhu con" << endl;
             biLoai[i] = true;
             --dangChoi;
         }
-        else if (mode[i] == mode1)
-        {
-            cout << nguoiChoi[i] << " chọn " << mode1_print << endl;
+        else if (mode[i] == mode1){
+            cout << nguoiChoi[i] << " chon " << mode1_print << endl;
         }
-        else if (mode[i] == mode2)
-        {
-            cout << nguoiChoi[i] << " chọn " << mode2_print << endl;
+        else if (mode[i] == mode2){
+            cout << nguoiChoi[i] << " chon " << mode2_print << endl;
         }
     }
 }
 
-void TimRaVuaCoBac()
-{
+void TimRaVuaCoBac(){
     cout << endl;
-    for (int i = 0; i < soNguoiChoi; i++)
-    {
-        if (biLoai[i] == false)
-        {
-            cout << "Chúc mừng " << nguoiChoi[i] << " trở thành Vua Cờ Bạc!!!!" << endl;
+    for (int i = 0; i < soNguoiChoi; i++){
+        if (biLoai[i] == false){
+            cout << "Chuc mung " << nguoiChoi[i] << " tro thanh Vua Co Bac!!!!" << endl;
             break;
         }
     }
     cout << endl
-         << "- Nhấn phím bất kỳ để quay lại MENU -" << endl;
+         << "- Nhan phim bat ky de quay lai menu -" << endl;
     cin.get();
     cin.get();
 }
 
 void NhapTienCuoc(vector<ll> &tienCuoc){
     cout << endl;
-    cout << "Nhập số tiền muốn cược" << endl;
+    cout << "Nhap so tien muon cuoc" << endl;
     for (int i = 0; i < soNguoiChoi; i++){
         if (biLoai[i] == false){
             cout << nguoiChoi[i] << " cược: ";
@@ -136,24 +128,18 @@ void NhapTienCuoc(vector<ll> &tienCuoc){
 }
 
 void KetQua(vector<string> mode, vector<ll> tienCuoc, string mode1_print, string mode1){
-    cout << mode1_print << endl
-             << endl;
-        for (int i = 0; i < soNguoiChoi; i++)
-        {
-            if (biLoai[i] == false)
-            {
-                if (mode[i] == mode1)
-                {
-                    cout << nguoiChoi[i] << " ĂN" << endl;
-                    soDu[i] += tienCuoc[i];
-                }
-                else
-                {
-                    cout << nguoiChoi[i] << " MẤT" << endl;
-                    soDu[i] -= tienCuoc[i];
-                }
+    cout << mode1_print << endl << endl;
+    for (int i = 0; i < soNguoiChoi; i++){
+        if (biLoai[i] == false){
+           if (mode[i] == mode1){
+                cout << nguoiChoi[i] << " AN" << endl;
+                soDu[i] += tienCuoc[i];
+            } else {
+                cout << nguoiChoi[i] << " MAT" << endl;
+                soDu[i] -= tienCuoc[i];
             }
         }
+    }
 }
 
 void TongKet(){
@@ -161,11 +147,11 @@ void TongKet(){
     for (int i = 0; i < soNguoiChoi; i++){
         if (soDu[i] > 0){
             if (biLoai[i] == false){
-                cout << "Số dư hiện tại của " << nguoiChoi[i] << ": " << soDu[i] << endl;
+                cout << "So du hien tai cua " << nguoiChoi[i] << ": " << soDu[i] << endl;
             }
         } else {
             if (bienMat[i] == false){
-                cout << nguoiChoi[i] << " hết tiền, bị đuổi khỏi cuộc chơi" << endl;
+                cout << nguoiChoi[i] << " het tien, bi duoi khoi cuoc choi" << endl;
                 biLoai[i] = true;
                 bienMat[i] = true;
                 --dangChoi;
@@ -177,7 +163,7 @@ void TongKet(){
 void ChoiTaiXiu(){
 
     vector<string> mode(soNguoiChoi);
-    NhapMode(mode, "tai", "xiu", "Tài", "Xỉu");
+    NhapMode(mode, "tai", "xiu", "Tai", "Xiu");
 
     if (dangChoi == 1){
         TimRaVuaCoBac();
@@ -194,14 +180,14 @@ void ChoiTaiXiu(){
         xucxac[i] = random(1, 6);
     }
     cout << endl;
-    cout << "Đổ xúc xắc: " << xucxac[0] << " " << xucxac[1] << " " << xucxac[2] << endl;
+    cout << "Đổ xuc xac: " << xucxac[0] << " " << xucxac[1] << " " << xucxac[2] << endl;
     int tong = xucxac[0] + xucxac[1] + xucxac[2];
-    cout << "Tổng: " << tong << endl;
+    cout << "Tong: " << tong << endl;
 
     if (3 <= tong && tong <= 10){
-        KetQua(mode, tienCuoc, "Về Xỉu", "xiu");
+        KetQua(mode, tienCuoc, "Ve Xiu", "xiu");
     } else {
-        KetQua(mode, tienCuoc, "Về Tài", "tai");
+        KetQua(mode, tienCuoc, "Ve Tai", "tai");
     }
 
     TongKet();
@@ -211,7 +197,7 @@ void ChoiTaiXiu(){
         return;
     }
 
-    cout << endl << "- Nhấn phím bất kỳ để sang lượt kế tiếp -";
+    cout << endl << "- Nhan phim bat ky de sang luot ke tiep -";
     cin.get();
     cin.get();
 
@@ -221,7 +207,7 @@ void ChoiTaiXiu(){
 void ChoiChanLe(){
 
     vector<string> mode(soNguoiChoi);
-    NhapMode(mode, "chan", "le", "Chẵn", "Lẻ");
+    NhapMode(mode, "chan", "le", "Chan", "Le");
 
     if (dangChoi == 1){
         TimRaVuaCoBac();
@@ -236,9 +222,9 @@ void ChoiChanLe(){
     int r = random(0, 1);
 
     if (r % 2 == 0){
-        KetQua(mode, tienCuoc, "Ra Chẵn", "chan");
+        KetQua(mode, tienCuoc, "Ra Chan", "chan");
     } else {
-        KetQua(mode, tienCuoc, "Ra Lẻ", "le");
+        KetQua(mode, tienCuoc, "Ra Le", "le");
     }
 
     TongKet();
@@ -248,7 +234,7 @@ void ChoiChanLe(){
         return;
     }
 
-    cout << endl << "- Nhấn phím bất kỳ để sang lượt kế tiếp -";
+    cout << endl << "- Nhan phim bat ky de sang luot ke tiep -";
     cin.get();
     cin.get();
 
@@ -257,22 +243,22 @@ void ChoiChanLe(){
 
 void ThoatGame(){
     system("cls");
-    cout << "Hẹn gặp lại!!!" << endl;
+    cout << "Hen gap lai!!!" << endl;
 }
 
 void Game(){
     
     system("cls");
     cout << "MENU" << endl;
-    cout << "1. Chơi Tài Xỉu" << endl;
-    cout << "2. Chơi Chẵn Lẻ" << endl;
-    cout << "3. Thoát Game" << endl;
+    cout << "1. Choi Tai Xiu" << endl;
+    cout << "2. Chơi Chan Le" << endl;
+    cout << "3. Thoat Game" << endl;
     cout << "Chọn chế độ: ";
     int mode;
     cin >> mode;
     while (mode != 1 && mode != 2 && mode != 3){
-        cout << "Mời nhập lại" << endl;
-        cout << "Chọn chế độ: ";
+        cout << "Moi nhap lai" << endl;
+        cout << "Chon che đo: ";
         cin >> mode;
     }
 
